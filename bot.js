@@ -1,17 +1,14 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
-const prefix = '6';
-const ownerID = '621391993163218945';
+const prefix = 'seu prefixo aqui';
+const ownerID = 'seu id aqui';
 /* global Map*/
 /* global client*/
 const active = new Map()
-
-
-
 client.on("ready",() =>{
     console.log(`Bot foi iniciado, com ${client.users.size} usuários, em ${client.channels.size} canais, em ${client.guilds.size} servidores.`);
-    client.user.setActivity('yourGameNameHere', { type: 'Foda' });
+
 });
 
 client.on("guildCreate", guild =>{
@@ -34,7 +31,6 @@ client.on("message",  message =>{
     if(!message.content.startsWith(prefix)) return;
 
     try{
-
         delete require.cache[require.resolve(`./comandos/${cmd}.js`)];
         
         let ops ={
@@ -50,14 +46,11 @@ client.on("message",  message =>{
         console.log(e.stack);
         }
         
-        
+
 });
 
 client.on('ready', () => console.log('Funcionando'));
-
 client.login(config.token);
-
-
 
 
 
